@@ -31,8 +31,10 @@ class ViewController: UIViewController {
 		let isFormValid = emailTextField.text?.count ?? 0 > 0 && usernameTextField.text?.count ?? 0 > 0 && passwordTextField.text?.count ?? 0 > 0
 		
 		if isFormValid {
+			signupButton.isEnabled = true
 			signupButton.backgroundColor = UIColor.rgb(red: 17, green: 154, blue: 237)
 		} else {
+			signupButton.isEnabled = false
 			signupButton.backgroundColor = UIColor.rgb(red: 149, green: 204, blue: 244)
 		}
 		
@@ -66,6 +68,7 @@ class ViewController: UIViewController {
 		button.setTitleColor(.white, for: .normal)
 		
 		button.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
+		button.isEnabled = false
 		return button
 	}()
 	
@@ -81,6 +84,15 @@ class ViewController: UIViewController {
 			
 			guard let user = result?.user else { return }
 			print("Successfully created user:", user.uid)
+			
+			let values = [user.uid:1]
+			Database.database().reference().child("users").setValue(values, withCompletionBlock: { (err, ref) in
+				if let err = err {
+					print("Failed to save user info into db:", err)
+					return
+				}
+				print("Successfully saved user info to db")
+			})
 		}
 	}
 	

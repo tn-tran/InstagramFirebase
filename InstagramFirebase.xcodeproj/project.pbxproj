@@ -14,7 +14,7 @@
 		FF2EEFDB2175A5C1002D95C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF2EEFDA2175A5C1002D95C9 /* Assets.xcassets */; };
 		FF2EEFDE2175A5C1002D95C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF2EEFDC2175A5C1002D95C9 /* LaunchScreen.storyboard */; };
 		FFBD90DA2176733200AD346F /* UIColor+rbg.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD90D92176733200AD346F /* UIColor+rbg.swift */; };
-		FFBD90DC21767B9700AD346F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFBD90DB21767B9700AD346F /* GoogleService-Info.plist */; };
+		FFBD90DE2176963200AD346F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFBD90DD2176963200AD346F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +29,7 @@
 		FF2EEFDD2175A5C1002D95C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF2EEFDF2175A5C1002D95C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFBD90D92176733200AD346F /* UIColor+rbg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rbg.swift"; sourceTree = "<group>"; };
-		FFBD90DB21767B9700AD346F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FFBD90DD2176963200AD346F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,8 +88,8 @@
 				FF2EEFD72175A5BF002D95C9 /* Main.storyboard */,
 				FF2EEFDA2175A5C1002D95C9 /* Assets.xcassets */,
 				FF2EEFDC2175A5C1002D95C9 /* LaunchScreen.storyboard */,
+				FFBD90DD2176963200AD346F /* GoogleService-Info.plist */,
 				FF2EEFDF2175A5C1002D95C9 /* Info.plist */,
-				FFBD90DB21767B9700AD346F /* GoogleService-Info.plist */,
 			);
 			path = InstagramFirebase;
 			sourceTree = "<group>";
@@ -163,7 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF2EEFDE2175A5C1002D95C9 /* LaunchScreen.storyboard in Resources */,
-				FFBD90DC21767B9700AD346F /* GoogleService-Info.plist in Resources */,
+				FFBD90DE2176963200AD346F /* GoogleService-Info.plist in Resources */,
 				FF2EEFDB2175A5C1002D95C9 /* Assets.xcassets in Resources */,
 				FF2EEFD92175A5BF002D95C9 /* Main.storyboard in Resources */,
 			);
@@ -184,6 +184,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -192,6 +193,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
