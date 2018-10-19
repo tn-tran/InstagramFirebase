@@ -13,6 +13,8 @@
 		FF2EEFD92175A5BF002D95C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF2EEFD72175A5BF002D95C9 /* Main.storyboard */; };
 		FF2EEFDB2175A5C1002D95C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF2EEFDA2175A5C1002D95C9 /* Assets.xcassets */; };
 		FF2EEFDE2175A5C1002D95C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF2EEFDC2175A5C1002D95C9 /* LaunchScreen.storyboard */; };
+		FF72CB6E21799211004510FD /* PhotoSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB6D21799211004510FD /* PhotoSelectorCell.swift */; };
+		FF72CB702179A67E004510FD /* PhotoSelectorHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB6F2179A67E004510FD /* PhotoSelectorHeader.swift */; };
 		FFBD90DA2176733200AD346F /* UIColor+rbg.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD90D92176733200AD346F /* UIColor+rbg.swift */; };
 		FFBD90DE2176963200AD346F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFBD90DD2176963200AD346F /* GoogleService-Info.plist */; };
 		FFBD90E02176BCD700AD346F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD90DF2176BCD700AD346F /* MainTabBarController.swift */; };
@@ -33,6 +35,8 @@
 		FF2EEFDA2175A5C1002D95C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF2EEFDD2175A5C1002D95C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF2EEFDF2175A5C1002D95C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF72CB6D21799211004510FD /* PhotoSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorCell.swift; sourceTree = "<group>"; };
+		FF72CB6F2179A67E004510FD /* PhotoSelectorHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorHeader.swift; sourceTree = "<group>"; };
 		FFBD90D92176733200AD346F /* UIColor+rbg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rbg.swift"; sourceTree = "<group>"; };
 		FFBD90DD2176963200AD346F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FFBD90DF2176BCD700AD346F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				FFBD90EA217976E500AD346F /* PhotoSelectorController.swift */,
+				FF72CB6F2179A67E004510FD /* PhotoSelectorHeader.swift */,
+				FF72CB6D21799211004510FD /* PhotoSelectorCell.swift */,
 			);
 			path = AddPhoto;
 			sourceTree = "<group>";
@@ -269,12 +275,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF2EEFD62175A5BF002D95C9 /* SignUpController.swift in Sources */,
+				FF72CB6E21799211004510FD /* PhotoSelectorCell.swift in Sources */,
 				FFBD90DA2176733200AD346F /* UIColor+rbg.swift in Sources */,
 				FFBD90E02176BCD700AD346F /* MainTabBarController.swift in Sources */,
 				FFBD90E52176C66F00AD346F /* UserProfileHeader.swift in Sources */,
 				FFBD90E22176BD8500AD346F /* UserProfileController.swift in Sources */,
 				FF2EEFD42175A5BF002D95C9 /* AppDelegate.swift in Sources */,
 				FFBD90E82178150A00AD346F /* LoginController.swift in Sources */,
+				FF72CB702179A67E004510FD /* PhotoSelectorHeader.swift in Sources */,
 				FFBD90EB217976E500AD346F /* PhotoSelectorController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
