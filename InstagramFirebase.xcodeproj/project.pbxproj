@@ -19,6 +19,7 @@
 		FFBD90E22176BD8500AD346F /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD90E12176BD8500AD346F /* UserProfileController.swift */; };
 		FFBD90E52176C66F00AD346F /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD90E42176C66F00AD346F /* UserProfileHeader.swift */; };
 		FFBD90E82178150A00AD346F /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD90E72178150A00AD346F /* LoginController.swift */; };
+		FFBD90EB217976E500AD346F /* PhotoSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD90EA217976E500AD346F /* PhotoSelectorController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		FFBD90E12176BD8500AD346F /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
 		FFBD90E42176C66F00AD346F /* UserProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
 		FFBD90E72178150A00AD346F /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		FFBD90EA217976E500AD346F /* PhotoSelectorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		FF2EEFD22175A5BF002D95C9 /* InstagramFirebase */ = {
 			isa = PBXGroup;
 			children = (
+				FFBD90E9217976CF00AD346F /* AddPhoto */,
 				FFBD90E6217814FB00AD346F /* Login */,
 				FFBD90E32176C66000AD346F /* UserProfile */,
 				FFBD90D6217672F800AD346F /* Extensions */,
@@ -128,6 +131,14 @@
 				FFBD90E72178150A00AD346F /* LoginController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		FFBD90E9217976CF00AD346F /* AddPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				FFBD90EA217976E500AD346F /* PhotoSelectorController.swift */,
+			);
+			path = AddPhoto;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +275,7 @@
 				FFBD90E22176BD8500AD346F /* UserProfileController.swift in Sources */,
 				FF2EEFD42175A5BF002D95C9 /* AppDelegate.swift in Sources */,
 				FFBD90E82178150A00AD346F /* LoginController.swift in Sources */,
+				FFBD90EB217976E500AD346F /* PhotoSelectorController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +304,7 @@
 		FF2EEFE02175A5C1002D95C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -353,7 +365,7 @@
 		FF2EEFE12175A5C1002D95C9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

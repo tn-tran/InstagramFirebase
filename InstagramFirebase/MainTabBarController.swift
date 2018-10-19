@@ -5,14 +5,25 @@
 //  Created by Tien Tran on 10/16/18.
 //  Copyright © 2018 Tien-Enterprise. All rights reserved.
 //
-
 import Foundation
 import UIKit
 import Firebase
-class MainTabBarController: UITabBarController {
-	
+class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
+	func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+		let index = viewControllers?.index(of: viewController)
+		if index == 2 { // the plus button
+			let layout = UICollectionViewFlowLayout()
+			let photoSelectorController = PhotoSelectorController(collectionViewLayout: layout)
+			let navController = UINavigationController(rootViewController: photoSelectorController)
+			present(navController, animated: true, completion: nil)
+			
+			return false
+		}
+		return true
+	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		self.delegate = self
 		if Auth.auth().currentUser == nil {
 			// show this controller if not logged in
 			DispatchQueue.main.async {
