@@ -22,9 +22,31 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
 		navigationItem.title = Auth.auth().currentUser?.uid
 		fetchUser()
 		collectionView?.register(UserProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
-		collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+		collectionView.register(UserProfilePhotoCell.self, forCellWithReuseIdentifier: cellId)
 		setupLogOutButton()
 		
+		fetchPost()
+		
+	}
+	
+	var posts = [Post]()
+	fileprivate func fetchPost() {
+		guard let uid = Auth.auth().currentUser?.uid else { return }
+		let databaseRef = Database.database().reference().child("posts").child(uid)
+		databaseRef.observeSingleEvent(of: .value, with: { (snapshot) in // allows us to fetch database as string : any
+//			print(snapshot.value)
+			guard let dictionary = snapshot.value as? [String: Any] else { return }
+			dictionary.forEach({ (key, value) in
+//				print("key \(key), Value: \(value)")
+				guard let dictionary = value as? [String:Any] else { return }
+				let post = Post(dictionary: dictionary)
+				print(post.imageUrl)
+				self.posts.append(post)
+			})
+			self.collectionView.reloadData()
+		}) { (err) in
+			print("failed to fetch posts:", err)
+		}
 	}
 	
 	fileprivate func setupLogOutButton() {
@@ -81,12 +103,12 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
 	}
 	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 7
+		return posts.count
 	}
 	
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-		cell.backgroundColor = .purple
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! UserProfilePhotoCell
+		cell.post = posts[indexPath.row]
 		return cell
 	}
 	

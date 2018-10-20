@@ -61,7 +61,9 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
 	override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		self.selectedImage = images[indexPath.item]
 		self.collectionView?.reloadData()
-		print(selectedImage)
+		let indexPath = IndexPath(item: 0, section: 0)
+		
+		collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
 	}
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 		return UIEdgeInsets(top: 1, left: 0, bottom: 0, right: 0)
@@ -71,8 +73,10 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
 		return CGSize(width: width, height: width)
 	}
 	
+	var header: PhotoSelectorHeader?
 	override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 		let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! PhotoSelectorHeader
+		self.header = header
 		header.photoImageView.image = selectedImage
 		let imageManager = PHImageManager.default()
 		if let selectedImage = selectedImage {
@@ -117,7 +121,9 @@ class PhotoSelectorController: UICollectionViewController, UICollectionViewDeleg
 	}
 	
 	@objc func handleNext() {
-		print("handling next")
+		let sharePhotoController = SharePhotoController()
+		sharePhotoController.selectedImage = header?.photoImageView.image
+		navigationController?.pushViewController(sharePhotoController, animated: true)
 	}
 	@objc func handleCancel() {
 		dismiss(animated: true, completion: nil)
