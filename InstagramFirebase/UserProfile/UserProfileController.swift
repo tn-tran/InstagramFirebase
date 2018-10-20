@@ -25,29 +25,47 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
 		collectionView.register(UserProfilePhotoCell.self, forCellWithReuseIdentifier: cellId)
 		setupLogOutButton()
 		
-		fetchPost()
+//		fetchPost()
 		
+		fetchOrderedPost()
+	}
+	
+	fileprivate func fetchOrderedPost() {
+		guard let uid = Auth.auth().currentUser?.uid else { return }
+		let databaseRef = Database.database().reference().child("posts").child(uid)
+		// maybe implement some paganation of data
+		databaseRef.queryOrdered(byChild: "creationDate").observe(.childAdded, with: { (snapshot) in
+			guard let dictionary = snapshot.value as? [String: Any] else { return }
+//			print(snapshot.key, snapshot.value)
+			guard let user = self.user else { return }
+			let post = Post(user: user, dictionary: dictionary)
+			self.posts.insert(post, at: 0)
+//			self.posts.append(post)
+			self.collectionView?.reloadData()
+		}) { (err) in
+			print("Failed to fetch ordered posts:", err)
+		}
 	}
 	
 	var posts = [Post]()
-	fileprivate func fetchPost() {
-		guard let uid = Auth.auth().currentUser?.uid else { return }
-		let databaseRef = Database.database().reference().child("posts").child(uid)
-		databaseRef.observeSingleEvent(of: .value, with: { (snapshot) in // allows us to fetch database as string : any
-//			print(snapshot.value)
-			guard let dictionary = snapshot.value as? [String: Any] else { return }
-			dictionary.forEach({ (key, value) in
-//				print("key \(key), Value: \(value)")
-				guard let dictionary = value as? [String:Any] else { return }
-				let post = Post(dictionary: dictionary)
-				print(post.imageUrl)
-				self.posts.append(post)
-			})
-			self.collectionView.reloadData()
-		}) { (err) in
-			print("failed to fetch posts:", err)
-		}
-	}
+//	fileprivate func fetchPost() {
+//		guard let uid = Auth.auth().currentUser?.uid else { return }
+//		let databaseRef = Database.database().reference().child("posts").child(uid)
+//		databaseRef.observeSingleEvent(of: .value, with: { (snapshot) in // allows us to fetch database as string : any
+////			print(snapshot.value)
+//			guard let dictionary = snapshot.value as? [String: Any] else { return }
+//			dictionary.forEach({ (key, value) in
+////				print("key \(key), Value: \(value)")
+//				guard let dictionary = value as? [String:Any] else { return }
+//				let post = Post(dictionary: dictionary)
+//				print(post.imageUrl)
+//				self.posts.append(post)
+//			})
+//			self.collectionView.reloadData()
+//		}) { (err) in
+//			print("failed to fetch posts:", err)
+//		}
+//	}
 	
 	fileprivate func setupLogOutButton() {
 		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "gear")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleLogOut))
@@ -87,19 +105,13 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
 	fileprivate func fetchUser() {
 		guard let uid = Auth.auth().currentUser?.uid else { return }
 		
-		Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
-			print(snapshot.value ?? "")
+		Database.fetchUserWithUID(uid: uid) { (user) in
 			
-			guard let dictionary = snapshot.value as? [String: Any] else { return }
-			
-			self.user = User(dictionary: dictionary)
+			self.user = user
 			self.navigationItem.title = self.user?.username
 			
 			self.collectionView?.reloadData()
-			
-		}) { (err) in
-			print("Failed to fetch user:", err)
-		}
+			}
 	}
 	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -125,12 +137,3 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
 	
 }
 
-struct User {
-	let username: String
-	let profileImageUrl: String
-	
-	init(dictionary: [String: Any]) {
-		self.username = dictionary["username"] as? String ?? ""
-		self.profileImageUrl = dictionary["profileImageUrl"] as? String ?? ""
-	}
-}

@@ -11,7 +11,6 @@
 		FF2EEFD42175A5BF002D95C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2EEFD32175A5BF002D95C9 /* AppDelegate.swift */; };
 		FF2EEFD62175A5BF002D95C9 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2EEFD52175A5BF002D95C9 /* SignUpController.swift */; };
 		FF2EEFD92175A5BF002D95C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF2EEFD72175A5BF002D95C9 /* Main.storyboard */; };
-		FF2EEFDB2175A5C1002D95C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF2EEFDA2175A5C1002D95C9 /* Assets.xcassets */; };
 		FF2EEFDE2175A5C1002D95C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF2EEFDC2175A5C1002D95C9 /* LaunchScreen.storyboard */; };
 		FF72CB6E21799211004510FD /* PhotoSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB6D21799211004510FD /* PhotoSelectorCell.swift */; };
 		FF72CB702179A67E004510FD /* PhotoSelectorHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB6F2179A67E004510FD /* PhotoSelectorHeader.swift */; };
@@ -19,6 +18,12 @@
 		FF72CB74217AA184004510FD /* UIView+anchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB73217AA184004510FD /* UIView+anchors.swift */; };
 		FF72CB77217AB843004510FD /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB76217AB843004510FD /* Post.swift */; };
 		FF72CB79217ABA6C004510FD /* UserProfilePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB78217ABA6C004510FD /* UserProfilePhotoCell.swift */; };
+		FF72CB7B217AC172004510FD /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB7A217AC172004510FD /* CustomImageView.swift */; };
+		FF72CB7E217AC902004510FD /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB7D217AC902004510FD /* HomeController.swift */; };
+		FF72CB80217ACB6C004510FD /* HomePostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB7F217ACB6C004510FD /* HomePostCell.swift */; };
+		FF72CB82217ADAD7004510FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF72CB81217ADAD6004510FD /* Assets.xcassets */; };
+		FF72CB84217AE721004510FD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB83217AE721004510FD /* User.swift */; };
+		FF72CB86217AF1B7004510FD /* Firebase+database.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB85217AF1B7004510FD /* Firebase+database.swift */; };
 		FFBD90DA2176733200AD346F /* UIColor+rbg.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD90D92176733200AD346F /* UIColor+rbg.swift */; };
 		FFBD90DE2176963200AD346F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFBD90DD2176963200AD346F /* GoogleService-Info.plist */; };
 		FFBD90E02176BCD700AD346F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD90DF2176BCD700AD346F /* MainTabBarController.swift */; };
@@ -36,7 +41,6 @@
 		FF2EEFD32175A5BF002D95C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF2EEFD52175A5BF002D95C9 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		FF2EEFD82175A5BF002D95C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FF2EEFDA2175A5C1002D95C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF2EEFDD2175A5C1002D95C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF2EEFDF2175A5C1002D95C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF72CB6D21799211004510FD /* PhotoSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorCell.swift; sourceTree = "<group>"; };
@@ -45,6 +49,12 @@
 		FF72CB73217AA184004510FD /* UIView+anchors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+anchors.swift"; sourceTree = "<group>"; };
 		FF72CB76217AB843004510FD /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		FF72CB78217ABA6C004510FD /* UserProfilePhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfilePhotoCell.swift; sourceTree = "<group>"; };
+		FF72CB7A217AC172004510FD /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		FF72CB7D217AC902004510FD /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		FF72CB7F217ACB6C004510FD /* HomePostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePostCell.swift; sourceTree = "<group>"; };
+		FF72CB81217ADAD6004510FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FF72CB83217AE721004510FD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FF72CB85217AF1B7004510FD /* Firebase+database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase+database.swift"; sourceTree = "<group>"; };
 		FFBD90D92176733200AD346F /* UIColor+rbg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rbg.swift"; sourceTree = "<group>"; };
 		FFBD90DD2176963200AD346F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FFBD90DF2176BCD700AD346F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -104,6 +114,7 @@
 		FF2EEFD22175A5BF002D95C9 /* InstagramFirebase */ = {
 			isa = PBXGroup;
 			children = (
+				FF72CB7C217AC8F7004510FD /* Home */,
 				FF72CB75217AB828004510FD /* Models */,
 				FFBD90E9217976CF00AD346F /* AddPhoto */,
 				FFBD90E6217814FB00AD346F /* Login */,
@@ -111,12 +122,11 @@
 				FFBD90D6217672F800AD346F /* Extensions */,
 				FF2EEFD32175A5BF002D95C9 /* AppDelegate.swift */,
 				FFBD90DF2176BCD700AD346F /* MainTabBarController.swift */,
-				FFBD90E12176BD8500AD346F /* UserProfileController.swift */,
 				FF2EEFD72175A5BF002D95C9 /* Main.storyboard */,
-				FF2EEFDA2175A5C1002D95C9 /* Assets.xcassets */,
 				FF2EEFDC2175A5C1002D95C9 /* LaunchScreen.storyboard */,
 				FFBD90DD2176963200AD346F /* GoogleService-Info.plist */,
 				FF2EEFDF2175A5C1002D95C9 /* Info.plist */,
+				FF72CB81217ADAD6004510FD /* Assets.xcassets */,
 			);
 			path = InstagramFirebase;
 			sourceTree = "<group>";
@@ -125,8 +135,18 @@
 			isa = PBXGroup;
 			children = (
 				FF72CB76217AB843004510FD /* Post.swift */,
+				FF72CB83217AE721004510FD /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FF72CB7C217AC8F7004510FD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FF72CB7D217AC902004510FD /* HomeController.swift */,
+				FF72CB7F217ACB6C004510FD /* HomePostCell.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		FFBD90D6217672F800AD346F /* Extensions */ = {
@@ -134,6 +154,8 @@
 			children = (
 				FFBD90D92176733200AD346F /* UIColor+rbg.swift */,
 				FF72CB73217AA184004510FD /* UIView+anchors.swift */,
+				FF72CB7A217AC172004510FD /* CustomImageView.swift */,
+				FF72CB85217AF1B7004510FD /* Firebase+database.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -141,6 +163,7 @@
 		FFBD90E32176C66000AD346F /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
+				FFBD90E12176BD8500AD346F /* UserProfileController.swift */,
 				FFBD90E42176C66F00AD346F /* UserProfileHeader.swift */,
 				FF72CB78217ABA6C004510FD /* UserProfilePhotoCell.swift */,
 			);
@@ -229,7 +252,7 @@
 			files = (
 				FF2EEFDE2175A5C1002D95C9 /* LaunchScreen.storyboard in Resources */,
 				FFBD90DE2176963200AD346F /* GoogleService-Info.plist in Resources */,
-				FF2EEFDB2175A5C1002D95C9 /* Assets.xcassets in Resources */,
+				FF72CB82217ADAD7004510FD /* Assets.xcassets in Resources */,
 				FF2EEFD92175A5BF002D95C9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,16 +318,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF72CB72217A9D2B004510FD /* SharePhotoController.swift in Sources */,
+				FF72CB80217ACB6C004510FD /* HomePostCell.swift in Sources */,
 				FF2EEFD62175A5BF002D95C9 /* SignUpController.swift in Sources */,
 				FF72CB6E21799211004510FD /* PhotoSelectorCell.swift in Sources */,
 				FFBD90DA2176733200AD346F /* UIColor+rbg.swift in Sources */,
+				FF72CB7B217AC172004510FD /* CustomImageView.swift in Sources */,
 				FFBD90E02176BCD700AD346F /* MainTabBarController.swift in Sources */,
 				FF72CB77217AB843004510FD /* Post.swift in Sources */,
 				FF72CB74217AA184004510FD /* UIView+anchors.swift in Sources */,
 				FFBD90E52176C66F00AD346F /* UserProfileHeader.swift in Sources */,
 				FFBD90E22176BD8500AD346F /* UserProfileController.swift in Sources */,
+				FF72CB86217AF1B7004510FD /* Firebase+database.swift in Sources */,
 				FF2EEFD42175A5BF002D95C9 /* AppDelegate.swift in Sources */,
 				FFBD90E82178150A00AD346F /* LoginController.swift in Sources */,
+				FF72CB7E217AC902004510FD /* HomeController.swift in Sources */,
+				FF72CB84217AE721004510FD /* User.swift in Sources */,
 				FF72CB79217ABA6C004510FD /* UserProfilePhotoCell.swift in Sources */,
 				FF72CB702179A67E004510FD /* PhotoSelectorHeader.swift in Sources */,
 				FFBD90EB217976E500AD346F /* PhotoSelectorController.swift in Sources */,
