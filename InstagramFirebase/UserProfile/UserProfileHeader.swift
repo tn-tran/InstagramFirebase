@@ -14,9 +14,67 @@ class UserProfileHeader: UICollectionViewCell {
 			guard let profileImageUrl = user?.profileImageUrl else { return }
 			profileImageView.loadImage(urlString: profileImageUrl)
 			usernameLabel.text = self.user?.username
+			setupEditFollowButton()
+		}
+	}
+	fileprivate func setupEditFollowButton() {
+		guard let currentLoggedInUserId = Auth.auth().currentUser?.uid else { return }
+		guard let userId = user?.uid else { return }
+		if currentLoggedInUserId == userId {
+			// edit profile
+		} else {
+			// check if following
+			Database.database().reference().child("following").child(currentLoggedInUserId).child(userId).observeSingleEvent(of: .value, with: { (snapshot) in
+				if let isFollowing = snapshot.value as? Int, isFollowing == 1 {
+					self.editProfileFollowButton.setTitle("Unfollow", for: .normal)
+				} else {
+					self.setupFollowStyle()
+				}
+				
+			}) { (err) in
+				print("Failed to check if following", err)
+			}
+			
 		}
 	}
 	
+	@objc func handleEditProfileOrFollow(){
+		print("executable edit profile")
+		guard let currentLoggedInUserId = Auth.auth().currentUser?.uid else { return }
+		guard let userId = user?.uid else { return }
+		//unfollow logic
+		if editProfileFollowButton.titleLabel?.text == "Unfollow"  {
+			Database.database().reference().child("following").child(currentLoggedInUserId).child(userId).removeValue { (err, ref) in
+				if let err = err {
+					print("failed to unfollow user:", err)
+					return
+				}
+				print("Successfully unfollowed user:", self.user?.username ?? "" )
+				self.setupFollowStyle()
+			}
+		} else {
+			// follow logic
+			let ref = Database.database().reference().child("following").child(currentLoggedInUserId)
+			let values = [userId: 1]
+			ref.updateChildValues(values) { (err, ref) in
+				if let err = err {
+					print("failed to follow err:", err)
+					return
+				}
+				print("Successfully followed user:", self.user?.username ?? "" )
+				self.editProfileFollowButton.setTitle("Unfollow", for: .normal)
+				self.editProfileFollowButton.setTitleColor(.black, for: .normal)
+				self.editProfileFollowButton.backgroundColor = .white
+			}
+		}
+
+	}
+	fileprivate func setupFollowStyle() {
+		self.editProfileFollowButton.setTitle("Follow", for: .normal)
+		self.editProfileFollowButton.backgroundColor = UIColor.rgb(red: 17, green: 154, blue: 237)
+		self.editProfileFollowButton.setTitleColor(.white, for: .normal)
+		self.editProfileFollowButton.layer.borderColor = UIColor(white: 0, alpha: 0.2).cgColor
+	}
 	let profileImageView: CustomImageView = {
 		let iv = CustomImageView()
 		return iv
@@ -85,7 +143,7 @@ class UserProfileHeader: UICollectionViewCell {
 		return label
 	}()
 	
-	let editProfileButton: UIButton = {
+	lazy var editProfileFollowButton: UIButton = {
 		let button = UIButton()
 		button.setTitle("Edit Profile", for: .normal)
 		button.setTitleColor(.black, for: .normal)
@@ -93,6 +151,7 @@ class UserProfileHeader: UICollectionViewCell {
 		button.layer.borderColor = UIColor.lightGray.cgColor
 		button.layer.borderWidth = 1
 		button.layer.cornerRadius = 3
+		button.addTarget(self, action: #selector(handleEditProfileOrFollow), for: .touchUpInside)
 		return button
 	}()
 	
@@ -109,8 +168,8 @@ class UserProfileHeader: UICollectionViewCell {
 		usernameLabel.anchor(top: profileImageView.bottomAnchor, left: self.leftAnchor, bottom: gridButton.topAnchor, right: self.rightAnchor, paddingTop: 4, paddingLeft: 12, paddingBottom: 0, paddingRight: 12, width: 0, height: 0)
 		
 		setupUserStatsView()
-		addSubview(editProfileButton)
-		editProfileButton.anchor(top: postsLabel.bottomAnchor, left: postsLabel.leftAnchor, bottom: nil, right: followingLabel.rightAnchor, paddingTop: 8, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 34)
+		addSubview(editProfileFollowButton)
+		editProfileFollowButton.anchor(top: postsLabel.bottomAnchor, left: postsLabel.leftAnchor, bottom: nil, right: followingLabel.rightAnchor, paddingTop: 8, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 34)
 	}
 	
 	fileprivate func setupUserStatsView() {
