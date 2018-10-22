@@ -27,6 +27,7 @@
 		FF72CB89217D37B3004510FD /* UserSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB88217D37B3004510FD /* UserSearchController.swift */; };
 		FF72CB8B217D44C6004510FD /* UserSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB8A217D44C6004510FD /* UserSearchCell.swift */; };
 		FF72CB8D217E5AD4004510FD /* Date+timeAgoDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB8C217E5AD4004510FD /* Date+timeAgoDisplay.swift */; };
+		FF72CB90217E6B18004510FD /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB8F217E6B18004510FD /* CameraController.swift */; };
 		FFBD90DA2176733200AD346F /* UIColor+rbg.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD90D92176733200AD346F /* UIColor+rbg.swift */; };
 		FFBD90DE2176963200AD346F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFBD90DD2176963200AD346F /* GoogleService-Info.plist */; };
 		FFBD90E02176BCD700AD346F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD90DF2176BCD700AD346F /* MainTabBarController.swift */; };
@@ -61,6 +62,7 @@
 		FF72CB88217D37B3004510FD /* UserSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchController.swift; sourceTree = "<group>"; };
 		FF72CB8A217D44C6004510FD /* UserSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchCell.swift; sourceTree = "<group>"; };
 		FF72CB8C217E5AD4004510FD /* Date+timeAgoDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+timeAgoDisplay.swift"; sourceTree = "<group>"; };
+		FF72CB8F217E6B18004510FD /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		FFBD90D92176733200AD346F /* UIColor+rbg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rbg.swift"; sourceTree = "<group>"; };
 		FFBD90DD2176963200AD346F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FFBD90DF2176BCD700AD346F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 		FF2EEFD22175A5BF002D95C9 /* InstagramFirebase */ = {
 			isa = PBXGroup;
 			children = (
+				FF72CB8E217E6B0F004510FD /* Camera */,
 				FF72CB87217D37A6004510FD /* Search */,
 				FF72CB7C217AC8F7004510FD /* Home */,
 				FF72CB75217AB828004510FD /* Models */,
@@ -163,6 +166,14 @@
 				FF72CB8A217D44C6004510FD /* UserSearchCell.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		FF72CB8E217E6B0F004510FD /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				FF72CB8F217E6B18004510FD /* CameraController.swift */,
+			);
+			path = Camera;
 			sourceTree = "<group>";
 		};
 		FFBD90D6217672F800AD346F /* Extensions */ = {
@@ -335,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF72CB72217A9D2B004510FD /* SharePhotoController.swift in Sources */,
+				FF72CB90217E6B18004510FD /* CameraController.swift in Sources */,
 				FF72CB80217ACB6C004510FD /* HomePostCell.swift in Sources */,
 				FF2EEFD62175A5BF002D95C9 /* SignUpController.swift in Sources */,
 				FF72CB6E21799211004510FD /* PhotoSelectorCell.swift in Sources */,

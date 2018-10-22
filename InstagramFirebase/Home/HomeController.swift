@@ -53,9 +53,13 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
 	
 	fileprivate func setupNavigationItems() {
 		navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "logo2").withRenderingMode(.alwaysOriginal))
-		
+		navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "camera3").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleCamera))
 	}
-	
+	@objc func handleCamera() {
+		print("showing camera")
+		let cameraController = CameraController()
+		present(cameraController, animated: true, completion: nil)
+	}
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomePostCell
 		cell.post = posts[indexPath.item]
