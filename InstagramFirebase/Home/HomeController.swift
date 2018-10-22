@@ -14,13 +14,28 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
 	var posts = [Post]()
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(handleUpdateFeed), name: SharePhotoController.updateFeedNotificationName, object: nil)
 		collectionView?.backgroundColor = .white
 		collectionView.register(HomePostCell.self, forCellWithReuseIdentifier: cellId)
+		let refreshControl = UIRefreshControl()
+		refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+		collectionView?.refreshControl = refreshControl
 		setupNavigationItems()
+		fetchAllPosts()
+	}
+	@objc func handleUpdateFeed() {
+		handleRefresh()
+	}
+	@objc func handleRefresh() {
+		print("Handling refresh...")
+		posts.removeAll()
 		fetchPost()
+		fetchAllPosts()  // is this the fix?
+	}
+	fileprivate func fetchAllPosts() {
+//		fetchPost() //this has a bug
 		fetchFollowingUserIds()
-
-
 	}
 	fileprivate func fetchFollowingUserIds() {
 		guard let uid = Auth.auth().currentUser?.uid else { return } // current id
@@ -71,6 +86,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
 		let databaseRef = Database.database().reference().child("posts").child(user.uid)
 		databaseRef.observeSingleEvent(of: .value, with: { (snapshot) in // allows us to fetch database as string : any
 			//			print(snapshot.value)
+			self.collectionView?.refreshControl?.endRefreshing()
 			guard let dictionary = snapshot.value as? [String: Any] else { return }
 			dictionary.forEach({ (key, value) in
 				//				print("key \(key), Value: \(value)")
