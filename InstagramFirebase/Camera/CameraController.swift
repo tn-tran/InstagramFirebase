@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import AVFoundation
-class CameraController: UIViewController, AVCapturePhotoCaptureDelegate {
+class CameraController: UIViewController, AVCapturePhotoCaptureDelegate, UIViewControllerTransitioningDelegate {
 	let dismissButton: UIButton = {
 		let button = UIButton()
 		button.setImage(#imageLiteral(resourceName: "right_arrow_shadow").withRenderingMode(.alwaysOriginal), for: .normal)
@@ -24,9 +24,19 @@ class CameraController: UIViewController, AVCapturePhotoCaptureDelegate {
 	}()
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+		transitioningDelegate = self as! UIViewControllerTransitioningDelegate
 		setupCaptureSession()
 		setupHUD()
+	}
+	let customAnimationPresentator = CustomAnimationPresentator()
+	let customAnimationDimisser = CustomAnimationDismisser()
+	func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+		
+		return customAnimationPresentator
+	}
+	func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+		
+		return customAnimationDimisser
 	}
 	override var prefersStatusBarHidden: Bool {
 		 return true

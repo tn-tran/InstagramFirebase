@@ -29,6 +29,8 @@
 		FF72CB8D217E5AD4004510FD /* Date+timeAgoDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB8C217E5AD4004510FD /* Date+timeAgoDisplay.swift */; };
 		FF72CB90217E6B18004510FD /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB8F217E6B18004510FD /* CameraController.swift */; };
 		FF72CB92217E7A1B004510FD /* PreviewPhotoContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB91217E7A1A004510FD /* PreviewPhotoContainerView.swift */; };
+		FF72CB94217E84B4004510FD /* CustomAnimationPresentator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB93217E84B4004510FD /* CustomAnimationPresentator.swift */; };
+		FF72CB96217E8AC4004510FD /* CustomAnimationDismisser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB95217E8AC4004510FD /* CustomAnimationDismisser.swift */; };
 		FFBD90DA2176733200AD346F /* UIColor+rbg.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD90D92176733200AD346F /* UIColor+rbg.swift */; };
 		FFBD90DE2176963200AD346F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFBD90DD2176963200AD346F /* GoogleService-Info.plist */; };
 		FFBD90E02176BCD700AD346F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD90DF2176BCD700AD346F /* MainTabBarController.swift */; };
@@ -65,6 +67,8 @@
 		FF72CB8C217E5AD4004510FD /* Date+timeAgoDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+timeAgoDisplay.swift"; sourceTree = "<group>"; };
 		FF72CB8F217E6B18004510FD /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		FF72CB91217E7A1A004510FD /* PreviewPhotoContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPhotoContainerView.swift; sourceTree = "<group>"; };
+		FF72CB93217E84B4004510FD /* CustomAnimationPresentator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimationPresentator.swift; sourceTree = "<group>"; };
+		FF72CB95217E8AC4004510FD /* CustomAnimationDismisser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimationDismisser.swift; sourceTree = "<group>"; };
 		FFBD90D92176733200AD346F /* UIColor+rbg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rbg.swift"; sourceTree = "<group>"; };
 		FFBD90DD2176963200AD346F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FFBD90DF2176BCD700AD346F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 			children = (
 				FF72CB8F217E6B18004510FD /* CameraController.swift */,
 				FF72CB91217E7A1A004510FD /* PreviewPhotoContainerView.swift */,
+				FF72CB93217E84B4004510FD /* CustomAnimationPresentator.swift */,
+				FF72CB95217E8AC4004510FD /* CustomAnimationDismisser.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -367,9 +373,11 @@
 				FF72CB7E217AC902004510FD /* HomeController.swift in Sources */,
 				FF72CB84217AE721004510FD /* User.swift in Sources */,
 				FF72CB79217ABA6C004510FD /* UserProfilePhotoCell.swift in Sources */,
+				FF72CB94217E84B4004510FD /* CustomAnimationPresentator.swift in Sources */,
 				FF72CB702179A67E004510FD /* PhotoSelectorHeader.swift in Sources */,
 				FF72CB92217E7A1B004510FD /* PreviewPhotoContainerView.swift in Sources */,
 				FF72CB8D217E5AD4004510FD /* Date+timeAgoDisplay.swift in Sources */,
+				FF72CB96217E8AC4004510FD /* CustomAnimationDismisser.swift in Sources */,
 				FF72CB8B217D44C6004510FD /* UserSearchCell.swift in Sources */,
 				FFBD90EB217976E500AD346F /* PhotoSelectorController.swift in Sources */,
 			);
