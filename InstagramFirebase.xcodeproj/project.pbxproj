@@ -24,6 +24,8 @@
 		FF72CB82217ADAD7004510FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF72CB81217ADAD6004510FD /* Assets.xcassets */; };
 		FF72CB84217AE721004510FD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB83217AE721004510FD /* User.swift */; };
 		FF72CB86217AF1B7004510FD /* Firebase+database.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB85217AF1B7004510FD /* Firebase+database.swift */; };
+		FF72CB89217D37B3004510FD /* UserSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB88217D37B3004510FD /* UserSearchController.swift */; };
+		FF72CB8B217D44C6004510FD /* UserSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB8A217D44C6004510FD /* UserSearchCell.swift */; };
 		FFBD90DA2176733200AD346F /* UIColor+rbg.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD90D92176733200AD346F /* UIColor+rbg.swift */; };
 		FFBD90DE2176963200AD346F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFBD90DD2176963200AD346F /* GoogleService-Info.plist */; };
 		FFBD90E02176BCD700AD346F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD90DF2176BCD700AD346F /* MainTabBarController.swift */; };
@@ -55,6 +57,8 @@
 		FF72CB81217ADAD6004510FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF72CB83217AE721004510FD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FF72CB85217AF1B7004510FD /* Firebase+database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase+database.swift"; sourceTree = "<group>"; };
+		FF72CB88217D37B3004510FD /* UserSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchController.swift; sourceTree = "<group>"; };
+		FF72CB8A217D44C6004510FD /* UserSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSearchCell.swift; sourceTree = "<group>"; };
 		FFBD90D92176733200AD346F /* UIColor+rbg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rbg.swift"; sourceTree = "<group>"; };
 		FFBD90DD2176963200AD346F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FFBD90DF2176BCD700AD346F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 		FF2EEFD22175A5BF002D95C9 /* InstagramFirebase */ = {
 			isa = PBXGroup;
 			children = (
+				FF72CB87217D37A6004510FD /* Search */,
 				FF72CB7C217AC8F7004510FD /* Home */,
 				FF72CB75217AB828004510FD /* Models */,
 				FFBD90E9217976CF00AD346F /* AddPhoto */,
@@ -147,6 +152,15 @@
 				FF72CB7F217ACB6C004510FD /* HomePostCell.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		FF72CB87217D37A6004510FD /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				FF72CB88217D37B3004510FD /* UserSearchController.swift */,
+				FF72CB8A217D44C6004510FD /* UserSearchCell.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		FFBD90D6217672F800AD346F /* Extensions */ = {
@@ -327,6 +341,7 @@
 				FF72CB77217AB843004510FD /* Post.swift in Sources */,
 				FF72CB74217AA184004510FD /* UIView+anchors.swift in Sources */,
 				FFBD90E52176C66F00AD346F /* UserProfileHeader.swift in Sources */,
+				FF72CB89217D37B3004510FD /* UserSearchController.swift in Sources */,
 				FFBD90E22176BD8500AD346F /* UserProfileController.swift in Sources */,
 				FF72CB86217AF1B7004510FD /* Firebase+database.swift in Sources */,
 				FF2EEFD42175A5BF002D95C9 /* AppDelegate.swift in Sources */,
@@ -335,6 +350,7 @@
 				FF72CB84217AE721004510FD /* User.swift in Sources */,
 				FF72CB79217ABA6C004510FD /* UserProfilePhotoCell.swift in Sources */,
 				FF72CB702179A67E004510FD /* PhotoSelectorHeader.swift in Sources */,
+				FF72CB8B217D44C6004510FD /* UserSearchCell.swift in Sources */,
 				FFBD90EB217976E500AD346F /* PhotoSelectorController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
