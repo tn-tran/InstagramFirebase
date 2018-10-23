@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import Firebase
-class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout, HomePostCellDelegate {
 	let cellId = "cellId"
 	var posts = [Post]()
 	override func viewDidLoad() {
@@ -62,6 +62,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
 	}
 	override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomePostCell
+		cell.delegate = self
 		cell.post = posts[indexPath.item]
 		return cell
 	}
@@ -95,7 +96,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
 			dictionary.forEach({ (key, value) in
 				//				print("key \(key), Value: \(value)")
 				guard let dictionary = value as? [String:Any] else { return }
-				let post = Post(user: user, dictionary: dictionary)
+				var post = Post(user: user, dictionary: dictionary)
+				post.id = key
 				self.posts.sort(by: { (post1, post2) -> Bool in
 					return post1.creationDate.compare(post.creationDate) == .orderedDescending
 				})
@@ -105,5 +107,12 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
 		}) { (err) in
 			print("failed to fetch posts:", err)
 		}
+	}
+	func didTapComment(post: Post) {
+		print("message coming HomeController")
+		print(post.caption)
+		let commentsController = CommentsController(collectionViewLayout: UICollectionViewFlowLayout())
+		commentsController.post = post
+		navigationController?.pushViewController(commentsController, animated: true)
 	}
 }

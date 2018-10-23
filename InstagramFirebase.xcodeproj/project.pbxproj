@@ -31,6 +31,9 @@
 		FF72CB92217E7A1B004510FD /* PreviewPhotoContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB91217E7A1A004510FD /* PreviewPhotoContainerView.swift */; };
 		FF72CB94217E84B4004510FD /* CustomAnimationPresentator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB93217E84B4004510FD /* CustomAnimationPresentator.swift */; };
 		FF72CB96217E8AC4004510FD /* CustomAnimationDismisser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72CB95217E8AC4004510FD /* CustomAnimationDismisser.swift */; };
+		FF78BD51217FBB93009B15B7 /* CommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF78BD50217FBB93009B15B7 /* CommentsController.swift */; };
+		FF78BD53217FCED7009B15B7 /* CommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF78BD52217FCED7009B15B7 /* CommentsCell.swift */; };
+		FF78BD55217FD406009B15B7 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF78BD54217FD406009B15B7 /* Comment.swift */; };
 		FFBD90DA2176733200AD346F /* UIColor+rbg.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD90D92176733200AD346F /* UIColor+rbg.swift */; };
 		FFBD90DE2176963200AD346F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFBD90DD2176963200AD346F /* GoogleService-Info.plist */; };
 		FFBD90E02176BCD700AD346F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD90DF2176BCD700AD346F /* MainTabBarController.swift */; };
@@ -69,6 +72,9 @@
 		FF72CB91217E7A1A004510FD /* PreviewPhotoContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPhotoContainerView.swift; sourceTree = "<group>"; };
 		FF72CB93217E84B4004510FD /* CustomAnimationPresentator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimationPresentator.swift; sourceTree = "<group>"; };
 		FF72CB95217E8AC4004510FD /* CustomAnimationDismisser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimationDismisser.swift; sourceTree = "<group>"; };
+		FF78BD50217FBB93009B15B7 /* CommentsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsController.swift; sourceTree = "<group>"; };
+		FF78BD52217FCED7009B15B7 /* CommentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCell.swift; sourceTree = "<group>"; };
+		FF78BD54217FD406009B15B7 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		FFBD90D92176733200AD346F /* UIColor+rbg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rbg.swift"; sourceTree = "<group>"; };
 		FFBD90DD2176963200AD346F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FFBD90DF2176BCD700AD346F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -152,6 +158,7 @@
 			children = (
 				FF72CB76217AB843004510FD /* Post.swift */,
 				FF72CB83217AE721004510FD /* User.swift */,
+				FF78BD54217FD406009B15B7 /* Comment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -161,6 +168,8 @@
 			children = (
 				FF72CB7D217AC902004510FD /* HomeController.swift */,
 				FF72CB7F217ACB6C004510FD /* HomePostCell.swift */,
+				FF78BD50217FBB93009B15B7 /* CommentsController.swift */,
+				FF78BD52217FCED7009B15B7 /* CommentsCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -365,6 +374,8 @@
 				FF72CB77217AB843004510FD /* Post.swift in Sources */,
 				FF72CB74217AA184004510FD /* UIView+anchors.swift in Sources */,
 				FFBD90E52176C66F00AD346F /* UserProfileHeader.swift in Sources */,
+				FF78BD55217FD406009B15B7 /* Comment.swift in Sources */,
+				FF78BD51217FBB93009B15B7 /* CommentsController.swift in Sources */,
 				FF72CB89217D37B3004510FD /* UserSearchController.swift in Sources */,
 				FFBD90E22176BD8500AD346F /* UserProfileController.swift in Sources */,
 				FF72CB86217AF1B7004510FD /* Firebase+database.swift in Sources */,
@@ -380,6 +391,7 @@
 				FF72CB96217E8AC4004510FD /* CustomAnimationDismisser.swift in Sources */,
 				FF72CB8B217D44C6004510FD /* UserSearchCell.swift in Sources */,
 				FFBD90EB217976E500AD346F /* PhotoSelectorController.swift in Sources */,
+				FF78BD53217FCED7009B15B7 /* CommentsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
