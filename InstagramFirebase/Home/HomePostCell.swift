@@ -10,12 +10,14 @@ import Foundation
 import UIKit
 protocol HomePostCellDelegate {
 	func didTapComment(post: Post)
+	func didLike(for cell: HomePostCell)
 }
 class HomePostCell: UICollectionViewCell {
 	var delegate: HomePostCellDelegate?
 	var post: Post? {
 		didSet {
 			guard let postImageUrl = post?.imageUrl else { return }
+			likeButton.setImage(post?.hasLiked == true ? #imageLiteral(resourceName: "like_selected").withRenderingMode(.alwaysOriginal) : #imageLiteral(resourceName: "like_unselected").withRenderingMode(.alwaysOriginal), for: .normal)
 			photoImageView.loadImage(urlString: postImageUrl)
 			usernameLabel.text = "TEST USERNAME"
 			// wouldnt this be ncie
@@ -61,11 +63,13 @@ class HomePostCell: UICollectionViewCell {
 		button.setTitleColor(.black, for: .normal)
 		return button
 	}()
-	let likeButton: UIButton = {
+	lazy var likeButton: UIButton = {
 		let button = UIButton()
 		button.setImage(#imageLiteral(resourceName: "like_unselected").withRenderingMode(.alwaysOriginal), for: .normal)
+		button.addTarget(self, action: #selector(handleLike), for: .touchUpInside)
 		return button
 	}()
+	
 	lazy var commentButton: UIButton = {
 		let button = UIButton()
 		button.setImage(#imageLiteral(resourceName: "comment").withRenderingMode(.alwaysOriginal), for: .normal)
@@ -122,6 +126,10 @@ class HomePostCell: UICollectionViewCell {
 		stackView.anchor(top: photoImageView.bottomAnchor, left: self.leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 8, width: 120, height: 50)
 	}
 	
+	@objc fileprivate func handleLike() {
+		print("Handling like from withing cell")
+		delegate?.didLike(for: self)
+	}
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}

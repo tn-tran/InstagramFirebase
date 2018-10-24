@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+
 class UserProfilePhotoCell: UICollectionViewCell {
 	var post: Post? {
 		didSet {
