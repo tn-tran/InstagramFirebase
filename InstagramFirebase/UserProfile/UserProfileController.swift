@@ -61,25 +61,45 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
 	}
 	
 	var posts = [Post]()
-	//	fileprivate func fetchPost() {
-	//		guard let uid = Auth.auth().currentUser?.uid else { return }
-	//		let databaseRef = Database.database().reference().child("posts").child(uid)
-	//		databaseRef.observeSingleEvent(of: .value, with: { (snapshot) in // allows us to fetch database as string : any
-	////			print(snapshot.value)
-	//			guard let dictionary = snapshot.value as? [String: Any] else { return }
-	//			dictionary.forEach({ (key, value) in
-	////				print("key \(key), Value: \(value)")
-	//				guard let dictionary = value as? [String:Any] else { return }
-	//				let post = Post(dictionary: dictionary)
-	//				print(post.imageUrl)
-	//				self.posts.append(post)
-	//			})
-	//			self.collectionView.reloadData()
-	//		}) { (err) in
-	//			print("failed to fetch posts:", err)
-	//		}
-	//	}
-	
+	var isFinishPaging = false
+	fileprivate func paginatePosts() {
+		print("Start paging for more posts")
+		guard let uid = self.user?.uid else { return }
+		let ref = Database.database().reference().child("posts").child(uid)
+//		var query = ref.queryOrderedByKey()
+		var query = ref.queryOrdered(byChild: "creationDate")
+		if posts.count > 0 {
+			let value = posts.last?.creationDate.timeIntervalSince1970
+			query = query.queryEnding(atValue: value)
+		}
+		query.queryLimited(toLast: 4).observeSingleEvent(of: .value, with: { (snapshot) in
+			
+			guard var allObjects = snapshot.children.allObjects as? [DataSnapshot] else { return }
+			allObjects.reverse()
+			if allObjects.count < 4{
+				self.isFinishPaging = true
+			}
+			if self.posts.count > 0  && allObjects.count > 0{
+					allObjects.removeFirst()
+			}
+			
+			allObjects.forEach({ (snapshot) in
+				guard let dictionary = snapshot.value as? [String:Any] else { return }
+				guard let user = self.user else { return }
+			
+				var post = Post(user: user, dictionary: dictionary)
+				post.id = snapshot.key
+				self.posts.append(post)
+				
+			})
+			self.posts.forEach({ (post) in
+				print(post.id ?? "")
+			})
+			self.collectionView.reloadData()
+		}) { (err) in
+			print("Failed to paginate for posts:", err)
+		}
+	}
 	fileprivate func setupLogOutButton() {
 		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "gear")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleLogOut))
 	}
@@ -126,7 +146,7 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
 			self.navigationItem.title = self.user?.username
 			
 			self.collectionView?.reloadData()
-			self.fetchOrderedPost()
+			self.paginatePosts()
 		}
 	}
 	
@@ -154,7 +174,11 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
 		return 1
 	}
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		
+		// show yopu how to fire off the paginate call
+		if indexPath.item == self.posts.count - 1  && !isFinishPaging {
+			print("paginating for posts")
+			paginatePosts()
+		}
 		if isGridView {
 			let width = (view.frame.width - 2) / 3
 			return CGSize(width: width, height: width)
