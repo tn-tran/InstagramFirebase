@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
+import UserNotifications
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
 
 	var window: UIWindow?
 
@@ -22,7 +23,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		window?.rootViewController = MainTabBarController()
 		
+		attempRegisterForNotifications(application: application)
 		return true
+	}
+	
+	func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+		print("Registed for notifications", deviceToken)
+	}
+	
+	func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+		print("REgistering with FCM with token:", fcmToken)
+	}
+	
+	
+	fileprivate func attempRegisterForNotifications(application: UIApplication) {
+		print("Attemping to register APNS...")
+		
+		Messaging.messaging().delegate = self
+		
+		// User notifcations auth
+		let options: UNAuthorizationOptions = [.alert, .badge, .sound]
+		UNUserNotificationCenter.current().requestAuthorization(options: options) { (granted, err) in
+			if let err = err {
+				print("Failed to request auth", err)
+				return
+			}
+			if granted {
+				print("Auth granted.")
+			} else {
+				print("Auth denied")
+			}
+		}
+		application.registerForRemoteNotifications()
 	}
 
 	func applicationWillResignActive(_ application: UIApplication) {

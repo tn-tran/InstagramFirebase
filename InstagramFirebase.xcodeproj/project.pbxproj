@@ -34,6 +34,7 @@
 		FF78BD51217FBB93009B15B7 /* CommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF78BD50217FBB93009B15B7 /* CommentsController.swift */; };
 		FF78BD53217FCED7009B15B7 /* CommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF78BD52217FCED7009B15B7 /* CommentsCell.swift */; };
 		FF78BD55217FD406009B15B7 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF78BD54217FD406009B15B7 /* Comment.swift */; };
+		FFA183B22182723500CE443B /* CommentInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA183B12182723500CE443B /* CommentInputAccessoryView.swift */; };
 		FFBD90DA2176733200AD346F /* UIColor+rbg.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD90D92176733200AD346F /* UIColor+rbg.swift */; };
 		FFBD90DE2176963200AD346F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FFBD90DD2176963200AD346F /* GoogleService-Info.plist */; };
 		FFBD90E02176BCD700AD346F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBD90DF2176BCD700AD346F /* MainTabBarController.swift */; };
@@ -75,6 +76,7 @@
 		FF78BD50217FBB93009B15B7 /* CommentsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsController.swift; sourceTree = "<group>"; };
 		FF78BD52217FCED7009B15B7 /* CommentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCell.swift; sourceTree = "<group>"; };
 		FF78BD54217FD406009B15B7 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		FFA183B12182723500CE443B /* CommentInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputAccessoryView.swift; sourceTree = "<group>"; };
 		FFBD90D92176733200AD346F /* UIColor+rbg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+rbg.swift"; sourceTree = "<group>"; };
 		FFBD90DD2176963200AD346F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FFBD90DF2176BCD700AD346F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				FF72CB7F217ACB6C004510FD /* HomePostCell.swift */,
 				FF78BD50217FBB93009B15B7 /* CommentsController.swift */,
 				FF78BD52217FCED7009B15B7 /* CommentsCell.swift */,
+				FFA183B12182723500CE443B /* CommentInputAccessoryView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-InstagramFirebase/Pods-InstagramFirebase-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -326,6 +330,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -379,6 +384,7 @@
 				FF72CB89217D37B3004510FD /* UserSearchController.swift in Sources */,
 				FFBD90E22176BD8500AD346F /* UserProfileController.swift in Sources */,
 				FF72CB86217AF1B7004510FD /* Firebase+database.swift in Sources */,
+				FFA183B22182723500CE443B /* CommentInputAccessoryView.swift in Sources */,
 				FF2EEFD42175A5BF002D95C9 /* AppDelegate.swift in Sources */,
 				FFBD90E82178150A00AD346F /* LoginController.swift in Sources */,
 				FF72CB7E217AC902004510FD /* HomeController.swift in Sources */,
